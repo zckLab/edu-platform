@@ -43,6 +43,17 @@ export default function AdminPage() {
                     <p className="text-[#4F566B] dark:text-muted-foreground mt-2 text-lg">
                         Gestão de alunos, faturas e controle de acesso v2.0.
                     </p>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                        <Button variant="outline" size="sm" className="bg-white dark:bg-card border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20">
+                            Ver Inadimplentes (12)
+                        </Button>
+                        <Button variant="outline" size="sm" className="bg-white dark:bg-card border-[#E3E8EE] dark:border-border">
+                            Resets Pendentes (2)
+                        </Button>
+                        <Button variant="outline" size="sm" className="bg-white dark:bg-card border-[#E3E8EE] dark:border-border">
+                            Alunos Ativos (116)
+                        </Button>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -12,7 +12,7 @@ import { InvoicesTableSkeleton } from "@/components/invoices-table-skeleton"
 import { mockInvoices } from "@/lib/mock-data"
 import { Invoice, User } from "@/lib/types"
 import { FileText, AlertCircle, Bell, X } from "lucide-react"
-import { differenceInDays, parseISO } from "date-fns"
+import { differenceInDays, differenceInHours, differenceInMinutes, startOfMonth, addDays, setDate } from "date-fns"
 import { OfficialReport } from "@/components/official-report"
 
 export function DashboardContent() {
@@ -25,6 +25,7 @@ export function DashboardContent() {
 
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [hasReadNotification, setHasReadNotification] = useState(false)
+  const [countdown, setCountdown] = useState("")
 
   useEffect(() => {
     // Verifica autenticação
@@ -70,14 +71,42 @@ export function DashboardContent() {
     }
 
     loadData()
-    return () => window.removeEventListener("notification-read", handleNotificationRead)
+
+    // Countdown logic for the 10th day
+    const updateCountdown = () => {
+      const now = new Date()
+      const deadline = setDate(new Date(), 10)
+      deadline.setHours(23, 59, 59, 999)
+
+      if (now > deadline) {
+        setCountdown("Prazo encerrado")
+        return
+      }
+
+      const days = differenceInDays(deadline, now)
+      const hours = differenceInHours(deadline, now) % 24
+      const minutes = differenceInMinutes(deadline, now) % 60
+
+      setCountdown(`${days}d ${hours}h ${minutes}m`)
+    }
+
+    updateCountdown()
+    const interval = setInterval(updateCountdown, 60000)
+
+    return () => {
+      window.removeEventListener("notification-read", handleNotificationRead)
+      clearInterval(interval)
+    }
   }, [router])
 
   const handlePrintReport = () => {
     setIsReporting(true)
+    // Pequeno delay para garantir que o componente renderizou antes de imprimir
     setTimeout(() => {
       window.print()
-    }, 500)
+      // Resetar o estado após um tempo para não ficar na tela de visualização
+      setTimeout(() => setIsReporting(false), 500)
+    }, 100)
   }
 
   const { filteredInvoices, upcomingAlerts } = useMemo(() => {
@@ -143,8 +172,12 @@ export function DashboardContent() {
                   </h3>
                   <p className="text-sm text-amber-800/80 dark:text-amber-500 mt-1 leading-relaxed">
                     Olá! Identificamos que você possui <strong>{upcomingAlerts.length} fatura(s)</strong> pendente(s) com vencimento próximo.
-                    Realize o pagamento até o dia 10 para garantir o valor de <strong>R$ 300,00</strong>. Após esta data, o valor será reajustado para R$ 500,00.
+                    Realize o pagamento até o dia 10 para garantir o valor de <strong>R$ 300,00</strong>.
                   </p>
+                  <div className="mt-3 flex items-center gap-2 text-xs font-bold text-amber-900 dark:text-amber-400 bg-amber-200/50 dark:bg-amber-900/30 w-fit px-2 py-1 rounded">
+                    <span className="animate-pulse">●</span>
+                    PRAZO PARA R$ 300: {countdown}
+                  </div>
                 </div>
               </div>
               <Button

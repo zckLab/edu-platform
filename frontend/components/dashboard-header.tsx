@@ -1,7 +1,7 @@
 import { useRouter, usePathname } from "next/navigation"
 import { LedLogo } from "@/components/led-logo"
 import { Button } from "@/components/ui/button"
-import { LogOut, Bell, Shield, BarChart3 } from "lucide-react"
+import { LogOut, Bell, Shield, BarChart3, ShieldCheck, LayoutDashboard } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useState, useEffect } from "react"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
@@ -51,25 +51,26 @@ export function DashboardHeader({ userName }: DashboardHeaderProps) {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <Link href="/dashboard">
-              <LedLogo className="h-8 w-auto cursor-pointer" />
+              <LedLogo className="h-16 w-auto cursor-pointer" />
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
-              {(role === "admin" || role === "superadmin") && (
-                <Link href="/admin">
-                  <Button variant={pathname === "/admin" ? "secondary" : "ghost"} size="sm" className="text-xs font-semibold gap-2">
-                    <Shield className="size-3" />
-                    ADM Painel
-                  </Button>
+              {role === "superadmin" && (
+                <Link
+                  href="/superadmin"
+                  className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#00A859] bg-[#00A859]/10 rounded-md"
+                >
+                  <ShieldCheck className="size-4" />
+                  SaaS Owner
                 </Link>
               )}
-
-              {role === "superadmin" && (
-                <Link href="/superadmin">
-                  <Button variant={pathname === "/superadmin" ? "secondary" : "ghost"} size="sm" className="text-xs font-semibold gap-2">
-                    <BarChart3 className="size-3" />
-                    SaaS Owner
-                  </Button>
+              {role === "admin" && (
+                <Link
+                  href="/admin"
+                  className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#635BFF] bg-[#635BFF]/10 rounded-md"
+                >
+                  <LayoutDashboard className="size-4" />
+                  ADM Painel
                 </Link>
               )}
             </nav>

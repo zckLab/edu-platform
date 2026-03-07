@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { DashboardHeader } from "@/components/dashboard-header"
-import { BarChart3, Users, DollarSign, Activity, Settings, ExternalLink } from "lucide-react"
+import { BarChart3, Users, DollarSign, Activity, Settings, ExternalLink, Shield, Globe, Clock, Zap } from "lucide-react"
+import { Switch } from "@/components/ui/switch"
+
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 export default function SuperAdminPage() {
     const router = useRouter()
@@ -25,7 +30,6 @@ export default function SuperAdminPage() {
         }
 
         const user = JSON.parse(authData)
-        // Role check for SuperAdmin (v2.1)
         if (user.role !== "superadmin") {
             router.push("/dashboard")
             return
@@ -51,10 +55,69 @@ export default function SuperAdminPage() {
                             Visão geral do sistema LED v2.1 (SaaS Owner Control).
                         </p>
                     </div>
-                    <Button className="bg-[#635BFF] hover:bg-[#5851DB] gap-2">
-                        <Settings className="size-4" />
-                        Configurações Globais
-                    </Button>
+
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button className="bg-[#635BFF] hover:bg-[#5851DB] gap-2">
+                                <Settings className="size-4" />
+                                Configurações Globais
+                            </Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <DialogHeader>
+                                <DialogTitle className="flex items-center gap-2">
+                                    <Settings className="size-5 text-primary" />
+                                    Parâmetros do SaaS (Core)
+                                </DialogTitle>
+                                <DialogDescription>
+                                    Ajuste os controles globais de escalabilidade e segurança.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-5 py-4">
+                                <div className="grid gap-2">
+                                    <Label htmlFor="base-price" className="flex items-center gap-2">
+                                        <DollarSign className="size-3.5 text-muted-foreground" />
+                                        Taxa de Serviço por Transação (R$)
+                                    </Label>
+                                    <Input id="base-price" defaultValue="25,00" />
+                                </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="sessions" className="flex items-center gap-2">
+                                        <Shield className="size-3.5 text-muted-foreground" />
+                                        Limite de Sessões Simultâneas
+                                    </Label>
+                                    <Input id="sessions" defaultValue="2" type="number" />
+                                </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="retention" className="flex items-center gap-2">
+                                        <Clock className="size-3.5 text-muted-foreground" />
+                                        Retenção de Logs de Auditoria (Dias)
+                                    </Label>
+                                    <Input id="retention" defaultValue="90" type="number" />
+                                </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="webhook" className="flex items-center gap-2">
+                                        <Globe className="size-3.5 text-muted-foreground" />
+                                        Endpoint Webhook (Produção)
+                                    </Label>
+                                    <Input id="webhook" defaultValue="https://api.led.com/v1/webhook" />
+                                </div>
+                                <div className="flex items-center justify-between p-3 border rounded-lg bg-red-50/50 dark:bg-red-950/10 border-red-100 dark:border-red-900/30">
+                                    <div className="space-y-0.5">
+                                        <Label className="text-red-900 dark:text-red-400 flex items-center gap-2">
+                                            <Zap className="size-3.5" />
+                                            Manutenção de Emergência
+                                        </Label>
+                                        <p className="text-[10px] text-red-700 dark:text-red-500">Bloqueia acesso externo imediatamente.</p>
+                                    </div>
+                                    <Switch />
+                                </div>
+                            </div>
+                            <DialogFooter>
+                                <Button type="submit" className="bg-[#635BFF] w-full">Salvar Parâmetros Críticos</Button>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -118,16 +181,27 @@ export default function SuperAdminPage() {
                     <CardContent className="p-0">
                         <div className="divide-y divide-border/50">
                             {[
-                                { time: "Há 2 min", event: "Pagamento Aprovado", student: "João Silva", amount: "R$ 300,00" },
-                                { time: "Há 15 min", event: "Novo Aluno Criado", student: "Maria Oliveira", amount: "-" },
-                                { time: "Há 1h", event: "Fatura Vencida (Multa Aplicada)", student: "Carlos Souza", amount: "R$ 500,00" },
+                                { time: "Há 2 min", event: "Pagamento Aprovado", student: "João Silva", amount: "R$ 300,00", ip: "189.22.1.42", ua: "Chrome/Windows" },
+                                { time: "Há 15 min", event: "Novo Aluno Criado", student: "Maria Oliveira", amount: "-", ip: "177.45.10.11", ua: "Safari/iOS" },
+                                { time: "Há 1h", event: "Fatura Vencida (Multa Aplicada)", student: "Carlos Souza", amount: "R$ 500,00", ip: "201.3.44.9", ua: "Firefox/Linux" },
                             ].map((log, i) => (
-                                <div key={i} className="px-6 py-4 flex items-center justify-between hover:bg-[#F7FAFC] transition-colors">
-                                    <div className="flex flex-col">
-                                        <span className="text-sm font-semibold text-[#1A1F36]">{log.event}</span>
-                                        <span className="text-xs text-[#4F566B]">{log.student} • {log.time}</span>
+                                <div key={i} className="px-6 py-5 flex items-center justify-between hover:bg-muted/30 dark:hover:bg-accent/50 transition-colors border-b border-border/40 last:border-0">
+                                    <div className="flex flex-col gap-1.5">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-base font-bold text-[#1A1F36] dark:text-foreground">{log.event}</span>
+                                            <span className="text-[11px] bg-primary/90 text-white px-2 py-0.5 rounded shadow-sm font-mono font-bold tracking-wider">
+                                                IP: {log.ip}
+                                            </span>
+                                        </div>
+                                        <span className="text-sm text-[#4F566B] dark:text-muted-foreground flex items-center gap-2">
+                                            <span className="font-semibold">{log.student}</span>
+                                            <span className="w-1 h-1 bg-muted-foreground/30 rounded-full" />
+                                            <span>{log.time}</span>
+                                            <span className="w-1 h-1 bg-muted-foreground/30 rounded-full" />
+                                            <span className="opacity-70 italic text-xs">{log.ua}</span>
+                                        </span>
                                     </div>
-                                    <div className="font-mono text-xs font-bold text-[#635BFF]">
+                                    <div className="font-mono text-sm font-black text-primary">
                                         {log.amount}
                                     </div>
                                 </div>

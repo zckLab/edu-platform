@@ -72,7 +72,7 @@ export function LoginForm() {
   return (
     <Card className="w-full max-w-md shadow-[0_7px_14px_0_rgba(60,66,87,0.1)] border-0">
       <CardHeader className="items-center text-center gap-4">
-        <LedLogo className="h-12 w-auto" />
+        <LedLogo className="h-28 w-auto" />
         <div className="space-y-1">
           <CardTitle className="text-xl">Acesse sua conta</CardTitle>
           <CardDescription>

@@ -21,7 +21,7 @@ export function OfficialReport({ user, invoices }: OfficialReportProps) {
         <div className="bg-white text-black p-12 max-w-[800px] mx-auto shadow-lg print:shadow-none print:p-8 font-sans transition-all animate-in fade-in duration-700">
             {/* Header with Logo and Title */}
             <div className="flex justify-between items-start mb-10">
-                <LedLogo className="h-16 w-auto grayscale" />
+                <LedLogo className="h-24 w-auto" />
                 <div className="text-right">
                     <h1 className="text-2xl font-bold tracking-tight text-[#1A1F36]">LED AUTOMACAO INDUSTRIAL</h1>
                     <p className="text-lg font-medium text-gray-600 mt-1">Declaração</p>

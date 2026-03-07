@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { StatusBadge } from "@/components/status-badge"
 import { Invoice } from "@/lib/types"
 import { formatCurrency, formatDate } from "@/lib/mock-data"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, FileDown } from "lucide-react"
 
 interface InvoicesTableProps {
   invoices: Invoice[]
@@ -51,7 +51,17 @@ export function InvoicesTable({ invoices }: InvoicesTableProps) {
               <StatusBadge status={invoice.status} />
             </TableCell>
             <TableCell className="py-4 text-right">
-              {invoice.status !== "paid" && invoice.paymentUrl ? (
+              {invoice.status === "paid" ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => alert("Baixando recibo...")}
+                  className="gap-1.5 border-border hover:bg-muted"
+                >
+                  <FileDown className="size-3.5" />
+                  Recibo
+                </Button>
+              ) : invoice.paymentUrl ? (
                 <Button
                   variant="default"
                   size="sm"
