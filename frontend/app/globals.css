@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* stylelint-disable */
+
+@theme inline {
+  --color-status-paid: #d1fae5;
+  --color-status-paid-foreground: #065f46;
+  --color-status-pending: #fef3c7;
+  --color-status-pending-foreground: #92400e;
+  --color-status-overdue: #fee2e2;
+  --color-status-overdue-foreground: #991b1b;
+
+  --color-background: #f6f9fc;
+  --color-foreground: #1a1f36;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1f36;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1a1f36;
+  --color-primary: #00a859;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #e8f5ee;
+  --color-secondary-foreground: #00a859;
+  --color-muted: #f0f4f8;
+  --color-muted-foreground: #697386;
+  --color-accent: #e8f5ee;
+  --color-accent-foreground: #00a859;
+  --color-destructive: #df1b41;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e3e8ee;
+  --color-input: #e3e8ee;
+  --color-ring: #00a859;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --font-sans: 'Inter', sans-serif;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+  }
+}
+
+.dark {
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-card: #09090b;
+  --color-card-foreground: #fafafa;
+  --color-popover: #09090b;
+  --color-popover-foreground: #fafafa;
+  --color-primary: #00c86a;
+  --color-primary-foreground: #09090b;
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #fafafa;
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #27272a;
+  --color-accent-foreground: #fafafa;
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #27272a;
+  --color-input: #27272a;
+  --color-ring: #00c86a;
+
+  --color-status-paid: #064e3b;
+  --color-status-paid-foreground: #6ee7b7;
+  --color-status-pending: #78350f;
+  --color-status-pending-foreground: #fcd34d;
+  --color-status-overdue: #7f1d1d;
+  --color-status-overdue-foreground: #fca5a5;
+}
+
+
+@layer base {
+
+  *,
+  ::after,
+  ::before {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* stylelint-enable */
