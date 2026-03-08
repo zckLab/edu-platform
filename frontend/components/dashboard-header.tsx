@@ -50,9 +50,13 @@ export function DashboardHeader({ userName }: DashboardHeaderProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <Link href="/dashboard">
-              <LedLogo className="h-16 w-auto cursor-pointer" />
-            </Link>
+            <div
+              onClick={handleLogout}
+              className="cursor-pointer transition-transform active:scale-95 hover:opacity-80"
+              title="Sair do sistema"
+            >
+              <LedLogo className="h-16 w-auto" />
+            </div>
 
             <nav className="hidden md:flex items-center gap-1">
               {role === "superadmin" && (
