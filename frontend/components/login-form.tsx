@@ -70,20 +70,20 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="w-full max-w-md shadow-[0_7px_14px_0_rgba(60,66,87,0.1)] border-0">
-      <CardHeader className="items-center text-center gap-4">
-        <LedLogo className="h-28 w-auto" />
-        <div className="space-y-1">
-          <CardTitle className="text-xl">Acesse sua conta</CardTitle>
-          <CardDescription>
+    <Card className="w-full bg-transparent shadow-none border-0 p-0">
+      <CardHeader className="flex flex-col items-center text-center px-0 pb-8">
+        <LedLogo className="w-[220px] h-auto mb-10 mx-auto" />
+        <div className="space-y-1 w-full flex flex-col items-center">
+          <CardTitle className="text-2xl font-bold tracking-tight text-white text-center">Acesse sua conta</CardTitle>
+          <CardDescription className="text-zinc-400 text-center">
             Digite seu CPF e senha para acessar o portal
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <CardContent className="px-0">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
-            <label htmlFor="cpf" className="text-sm font-medium text-foreground">
+            <label htmlFor="cpf" className="text-sm font-medium text-zinc-300">
               CPF
             </label>
             <Input
@@ -93,7 +93,7 @@ export function LoginForm() {
               placeholder="000.000.000-00"
               value={cpf.value}
               onChange={cpf.onChange}
-              className="h-11 text-base"
+              className="h-12 bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:ring-primary/50 transition-all text-base"
               aria-describedby={error ? "auth-error" : undefined}
               aria-invalid={error ? true : undefined}
               disabled={isLoading}
@@ -101,7 +101,7 @@ export function LoginForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="password" className="text-sm font-medium text-foreground">
+            <label htmlFor="password" className="text-sm font-medium text-zinc-300">
               Senha
             </label>
             <div className="relative">
@@ -111,13 +111,13 @@ export function LoginForm() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="h-11 text-base pr-10"
+                className="h-12 bg-white/5 border-white/10 text-white placeholder:text-zinc-600 focus:ring-primary/50 transition-all text-base pr-12"
                 disabled={isLoading}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
                 disabled={isLoading}
               >
                 {showPassword ? (
@@ -130,23 +130,23 @@ export function LoginForm() {
           </div>
 
           {error && (
-            <p id="auth-error" className="text-sm text-destructive">
+            <p id="auth-error" className="text-sm text-red-400 font-medium">
               {error}
             </p>
           )}
 
           <Button
             type="submit"
-            className="h-11 text-base font-medium mt-2"
+            className="h-12 text-base font-semibold mt-4 bg-[#00A859] hover:bg-[#008f4c] text-white shadow-lg shadow-[#00A859]/20 hover:shadow-[#00A859]/30 transition-all active:scale-[0.98] border-0"
             disabled={isLoading}
           >
             {isLoading ? (
               <>
                 <Spinner className="size-5" />
-                Entrando...
+                Acessando...
               </>
             ) : (
-              "Entrar"
+              "Acessar Portal"
             )}
           </Button>
         </form>
