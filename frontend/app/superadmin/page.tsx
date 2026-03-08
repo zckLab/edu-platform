@@ -11,6 +11,7 @@ import { Switch } from "@/components/ui/switch"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 export default function SuperAdminPage() {
     const router = useRouter()
@@ -253,11 +254,84 @@ export default function SuperAdminPage() {
                         </div>
                     </div>
                 </div>
-                {/* 6. Spline Watermark Cover (Absolute Solid Wall) */}
-                <div className="fixed bottom-[18px] right-[5px] z-[1000] w-[160px] h-[40px] bg-black border border-white/10 rounded-full shadow-[0_0_30px_rgba(0,0,0,1)] flex items-center justify-center pointer-events-auto cursor-default select-none">
-                    <p className="text-[10px] font-black text-zinc-400 tracking-[0.2em] uppercase">
-                        Super Admin
-                    </p>
+                {/* 6. Spline Watermark Cover (Absolute Solid Wall + Interactive Info) */}
+                <div className="fixed bottom-[18px] right-[5px] z-[1000] pointer-events-auto select-none">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <div className="w-[160px] h-[40px] bg-black border border-white/10 rounded-full shadow-[0_0_30px_rgba(0,0,0,1)] flex items-center justify-center cursor-pointer group transition-all duration-300 hover:border-[#635BFF]/50 hover:shadow-[0_0_20px_rgba(99,91,255,0.2)]">
+                                <p className="text-[10px] font-black text-zinc-400 tracking-[0.2em] uppercase transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                                    Super Admin
+                                </p>
+                            </div>
+                        </SheetTrigger>
+                        <SheetContent className="bg-black/90 border-white/10 text-white backdrop-blur-[30px] sm:max-w-md overflow-y-auto scrollbar-hide">
+                            <SheetHeader className="space-y-4 pr-6">
+                                <div className="size-12 rounded-2xl bg-[#635BFF]/10 border border-[#635BFF]/20 flex items-center justify-center mb-2">
+                                    <Shield className="size-6 text-[#635BFF]" />
+                                </div>
+                                <SheetTitle className="text-3xl font-black tracking-tighter text-white">
+                                    SUPERADMIN MONITOR
+                                </SheetTitle>
+                                <SheetDescription className="text-zinc-400 font-bold text-sm leading-relaxed">
+                                    O SuperAdmin Monitor é a central de inteligência do ecossistema LED, projetada para garantir que a plataforma opere com máxima eficiência e que cada transação seja processada com precisão.
+                                </SheetDescription>
+                            </SheetHeader>
+
+                            <div className="mt-8 space-y-10 pb-20">
+                                {/* Seção 1 */}
+                                <div className="space-y-5">
+                                    <h3 className="text-[#635BFF] text-xs font-black uppercase tracking-[0.2em] px-1">1. O que o Painel faz?</h3>
+                                    <div className="grid gap-4">
+                                        {[
+                                            { title: "Saúde da Nuvem", desc: "Monitora em tempo real o 'uptime' e a latência dos servidores para assegurar que o acesso dos alunos seja imediato." },
+                                            { title: "Fluxo de Operações", desc: "Centraliza o rastro técnico de eventos críticos, como a ativação de webhooks de pagamento e registros de novos acessos." },
+                                            { title: "Métricas de Crescimento", desc: "Exibe o faturamento líquido e o volume de matrículas ativas para uma visão clara da saúde financeira do negócio." },
+                                            { title: "Estabilidade de Rede", desc: "Verifica a integridade das conexões externas para evitar gargalos em períodos de alto tráfego." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 space-y-1.5 transition-all hover:bg-white/[0.05]">
+                                                <p className="text-xs font-black text-white">{item.title}</p>
+                                                <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Seção 2 */}
+                                <div className="space-y-5">
+                                    <h3 className="text-[#635BFF] text-xs font-black uppercase tracking-[0.2em] px-1">2. O que o Painel NÃO vê?</h3>
+                                    <div className="grid gap-4">
+                                        {[
+                                            { title: "Privacidade do Usuário", desc: "O sistema não acessa senhas pessoais, conteúdos de mensagens privadas ou detalhes sensíveis de cartões de crédito." },
+                                            { title: "Dados Protegidos", desc: "Informações de identificação individual são tratadas via hash, garantindo o anonimato conforme as normas de segurança." },
+                                            { title: "Foco em Infraestrutura", desc: "O monitoramento é estritamente técnico e focado no desempenho global da plataforma, não na atividade individual dos usuários." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="p-5 rounded-2xl bg-red-500/[0.02] border border-red-500/10 space-y-1.5 transition-all hover:bg-red-500/[0.04]">
+                                                <p className="text-xs font-black text-red-500/80">{item.title}</p>
+                                                <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Seção 3 */}
+                                <div className="space-y-5">
+                                    <h3 className="text-[#635BFF] text-xs font-black uppercase tracking-[0.2em] px-1">3. Confiança e Operação</h3>
+                                    <div className="grid gap-4">
+                                        {[
+                                            { title: "Go", desc: "O backend utiliza a performance da linguagem Go para processar milhares de logs sem afetar a velocidade da interface." },
+                                            { title: "Auditoria    Contínua", desc: "Cada alteração de parâmetro global é registrada no Infrastructure Flow, criando um histórico de manutenção confiável." },
+                                            { title: "Manutenção Ágil", desc: "A arquitetura modular permite atualizações e correções de bugs sem a necessidade de tirar o painel do ar." }
+                                        ].map((item, i) => (
+                                            <div key={i} className="p-5 rounded-2xl bg-emerald-500/[0.02] border border-emerald-500/10 space-y-1.5 transition-all hover:bg-emerald-500/[0.04]">
+                                                <p className="text-xs font-black text-emerald-500/80">{item.title}</p>
+                                                <p className="text-[11px] text-zinc-500 font-medium leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </main>
         </div>
