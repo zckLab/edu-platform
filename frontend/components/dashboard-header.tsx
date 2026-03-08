@@ -134,7 +134,7 @@ export function DashboardHeader({ userName }: DashboardHeaderProps) {
               </PopoverContent>
             </Popover>
 
-            <ThemeToggle />
+            {!(pathname === "/admin" || pathname === "/superadmin") && <ThemeToggle />}
 
             <div className="h-4 w-px bg-border mx-1 hidden sm:block" />
 
