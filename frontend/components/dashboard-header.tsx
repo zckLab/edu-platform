@@ -61,7 +61,7 @@ export function DashboardHeader({ userName }: DashboardHeaderProps) {
                   className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#00A859] bg-[#00A859]/10 rounded-md"
                 >
                   <ShieldCheck className="size-4" />
-                  SaaS Owner
+                  Dono
                 </Link>
               )}
               {role === "admin" && (
