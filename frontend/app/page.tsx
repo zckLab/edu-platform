@@ -3,6 +3,7 @@ import { OptimizedSpline } from "@/components/optimized-spline"
 import Script from "next/script"
 import React from "react"
 
+
 export default function LoginPage() {
   return (
     <main className="h-screen w-full flex overflow-hidden bg-[#0D0D0D]">
