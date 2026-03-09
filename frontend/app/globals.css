@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -125,6 +126,7 @@ spline-viewer {
 
 /* Reduced motion / low-end hardware: lighter blur, fewer animations */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   ::before,
   ::after {
