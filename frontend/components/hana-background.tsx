@@ -9,7 +9,11 @@ export function HanaBackground() {
                 src="https://unpkg.com/@splinetool/viewer@1.12.67/build/spline-viewer.js"
                 type="module"
             />
-            <spline-viewer url="https://prod.spline.design/KX7dPR7jjSMeZblW/scene.splinecode" />
+            <spline-viewer
+                url="https://prod.spline.design/KX7dPR7jjSMeZblW/scene.splinecode"
+                loading="lazy"
+                device-pixel-ratio="1"
+            />
 
             <style jsx global>{`
         .bg-viewport {

@@ -11,6 +11,8 @@ export function OptimizedSpline() {
                 url="https://prod.spline.design/HlQppNESmgOMAq-k/scene.splinecode"
                 events-target="global"
                 loading-library="lazy"
+                loading="lazy"
+                device-pixel-ratio="1"
                 className="w-full h-full"
                 style={{ height: '100%', width: '100%', objectFit: 'cover' }}
             />

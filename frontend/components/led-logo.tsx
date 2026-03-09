@@ -6,8 +6,8 @@ export function LedLogo({ className }: { className?: string }) {
       <Image
         src="/logo.png"
         alt="LED Logo"
-        width={400}
-        height={150}
+        width={220}
+        height={83}
         className="h-full w-auto object-contain mx-auto"
         priority
       />

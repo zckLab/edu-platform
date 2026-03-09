@@ -36,20 +36,30 @@ export default function AdminPage() {
         setSyncProgress(0)
         setSyncComplete(false)
 
-        const interval = setInterval(() => {
-            setSyncProgress(prev => {
-                if (prev >= 100) {
-                    clearInterval(interval)
-                    setTimeout(() => {
-                        setIsSyncing(false)
-                        setSyncComplete(true)
-                        setTimeout(() => setSyncComplete(false), 1500)
-                    }, 500)
-                    return 100
-                }
-                return prev + 5
-            })
-        }, 100)
+        let progress = 0
+        let lastTime = performance.now()
+
+        const step = (now: number) => {
+            const delta = now - lastTime
+            if (delta >= 100) {
+                lastTime = now
+                progress += 5
+                setSyncProgress(Math.min(progress, 100))
+            }
+
+            if (progress >= 100) {
+                setTimeout(() => {
+                    setIsSyncing(false)
+                    setSyncComplete(true)
+                    setTimeout(() => setSyncComplete(false), 1500)
+                }, 500)
+                return
+            }
+
+            requestAnimationFrame(step)
+        }
+
+        requestAnimationFrame(step)
     }
 
     useEffect(() => {

@@ -113,7 +113,7 @@ export default function SuperAdminPage() {
             `}</style>
 
             {/* 2. HUD Header (Top) */}
-            <div className="fixed top-0 left-0 w-full z-[1000] border-b border-white/5 backdrop-blur-md bg-black/10 pointer-events-none">
+            <div className="fixed top-0 left-0 w-full z-[1000] border-b border-white/5 backdrop-blur-md bg-black/10 pointer-events-none" style={{ willChange: 'transform' }}>
                 <div className="pointer-events-auto">
                     <DashboardHeader userName="SuperAdmin" />
                 </div>
@@ -144,7 +144,7 @@ export default function SuperAdminPage() {
                                 <Settings className="size-8 text-white/50 group-hover:text-[#635BFF] group-hover:rotate-90 transition-all duration-500" />
                             </Button>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px] bg-white/10 border-white/10 text-white z-[1000] backdrop-blur-[40px] shadow-2xl">
+                        <DialogContent className="sm:max-w-[425px] bg-white/10 border-white/10 text-white z-[1000] backdrop-blur-[20px] shadow-2xl">
                             <DialogHeader>
                                 <DialogTitle className="flex items-center gap-3 text-white text-2xl font-black tracking-tighter">
                                     <Settings className="size-7 text-[#635BFF]" />
@@ -198,6 +198,7 @@ export default function SuperAdminPage() {
                     id="infrastructure-flow-widget"
                     className={`fixed bottom-8 left-8 w-[450px] overflow-hidden bg-black/60 backdrop-blur-[12px] border border-white/10 rounded-[24px] shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out z-[100] pointer-events-auto ${isLogsOpen ? 'max-h-[50vh]' : 'max-h-[84px]'
                         }`}
+                    style={{ willChange: 'transform, opacity, max-height' }}
                 >
                     <div
                         className="p-6 flex items-center justify-between cursor-pointer group"

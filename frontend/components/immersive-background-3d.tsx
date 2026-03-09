@@ -1,31 +1,51 @@
 "use client"
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 
 export function ImmersiveBackground3D() {
+  const rafIdRef = useRef<number | null>(null)
+  const pendingEventRef = useRef<MouseEvent | null>(null)
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const viewer = document.querySelector('spline-viewer');
-      if (viewer) {
-        // Manually dispatch the mouse event to the Spline viewer
-        // This bypasses DOM layer blocking for the 3D motor
-        viewer.dispatchEvent(new MouseEvent('mousemove', {
-          clientX: e.clientX,
-          clientY: e.clientY,
-          screenX: e.screenX,
-          screenY: e.screenY,
-          bubbles: true
-        }));
-      }
-    };
+      // Store latest event, only dispatch on next animation frame
+      pendingEventRef.current = e
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+      if (rafIdRef.current === null) {
+        rafIdRef.current = requestAnimationFrame(() => {
+          const evt = pendingEventRef.current
+          if (evt) {
+            const viewer = document.querySelector('spline-viewer')
+            if (viewer) {
+              viewer.dispatchEvent(new MouseEvent('mousemove', {
+                clientX: evt.clientX,
+                clientY: evt.clientY,
+                screenX: evt.screenX,
+                screenY: evt.screenY,
+                bubbles: true
+              }))
+            }
+          }
+          pendingEventRef.current = null
+          rafIdRef.current = null
+        })
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current)
+      }
+    }
+  }, [])
 
   return (
     <div className="spline-bg-container">
       <spline-viewer
         url="https://prod.spline.design/J4vKYDPZ4midNFfV/scene.splinecode"
+        loading="lazy"
+        device-pixel-ratio="1"
       />
 
       <style jsx global>{`

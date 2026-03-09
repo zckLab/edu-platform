@@ -109,6 +109,39 @@
   }
 }
 
+/* GPU acceleration hints for animated/transitioning elements */
+.admin-card,
+.sync-card,
+[data-state="open"][role="dialog"],
+[data-radix-popper-content-wrapper],
+[data-side][role="dialog"] {
+  will-change: transform, opacity;
+}
+
+/* Spline viewer pixel density cap */
+spline-viewer {
+  image-rendering: optimizeSpeed;
+}
+
+/* Reduced motion / low-end hardware: lighter blur, fewer animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .admin-card,
+  .sync-card,
+  [data-state="open"][role="dialog"],
+  [data-radix-popper-content-wrapper] {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+}
+
 /* Esconder o indicador de desenvolvimento do Next.js */
 nextjs-portal {
   display: none !important;
