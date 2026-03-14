@@ -1,0 +1,138 @@
+{
+  "navbar": {
+    "courses": "Courses",
+    "howItWorks": "How it works",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Enrollment open — Limited spots",
+    "title1": "Your career in",
+    "titleHighlight": "industry",
+    "title2": "starts here",
+    "description": "Technical and vocational courses focused on the industrial market. Hands-on classes, recognized certification, and high employability.",
+    "viewCourses": "View courses",
+    "nr10": "NR-10",
+    "safety": "Safety",
+    "electrical": "Electrical",
+    "industrial": "Industrial",
+    "technical": "Technical",
+    "twoYears": "2 years"
+  },
+  "courses": {
+    "professionalTitle": "Professional Courses",
+    "professionalSubtitle": "Fast-track training for the job market",
+    "electricityTitle": "Electrical Courses",
+    "electricitySubtitle": "Become a complete electrical professional",
+    "technicalTitle": "Technical Courses",
+    "technicalDuration": "Duration: 2 years",
+    "technicalSubtitle": "Complete technical education with recognized certification",
+    "learnMore": "Learn more",
+    "prof": {
+      "nr10": "NR-10",
+      "nr10Desc": "Safety in electrical installations and services. Mandatory course for electrical professionals.",
+      "nr10Comp": "NR-10 Supplementary",
+      "nr10CompDesc": "Supplementary training for work on the Electrical Power System (SEP).",
+      "nr35": "NR-35",
+      "nr35Desc": "Working at heights safely. Required training per regulatory standards.",
+      "frentista": "Gas Station Attendant + NR-20",
+      "frentistaDesc": "Complete training for attendants with safety training for flammables and fuels.",
+      "refrigeracao": "Refrigeration",
+      "refrigeracaoDesc": "Installation and maintenance of refrigeration and air conditioning systems."
+    },
+    "elec": {
+      "basica": "Basic & Building Electrical",
+      "basicaDesc": "Electrical fundamentals and residential and commercial building installations.",
+      "industrial": "Industrial Electrical + PLC",
+      "industrialDesc": "Industrial electrical commands and Programmable Logic Controller programming.",
+      "altaBaixa": "High & Low Voltage Electrical",
+      "altaBaixaDesc": "Installation and maintenance of high and low voltage systems."
+    },
+    "tech": {
+      "eletromec": "Electromechanics Technician",
+      "eletromecDesc": "Complete training in industrial electrical and mechanical systems. Maintenance and automation.",
+      "eletrotec": "Electrotechnics Technician",
+      "eletrotecDesc": "Design, installation, and maintenance of power and control electrical systems.",
+      "automacao": "Industrial Automation Technician",
+      "automacaoDesc": "Automated systems, robotics, PLC, and industrial instrumentation.",
+      "badge": "2 years"
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "From first contact to your professional career in a few steps",
+    "step": "STEP",
+    "steps": {
+      "enrollment": "Enrollment",
+      "enrollmentDesc": "Simple and fast process. In-person or via contact.",
+      "classes": "Theory & Hands-on Classes",
+      "classesDesc": "Updated content with practice in equipped laboratories.",
+      "certification": "Certification",
+      "certificationDesc": "Certificate recognized by MEC and the job market.",
+      "career": "Job Market",
+      "careerDesc": "Complete preparation to land your position in the industry."
+    }
+  },
+  "career": {
+    "title": "Job Market",
+    "subtitle": "High-demand fields with excellent salaries await you",
+    "items": {
+      "electrician": "Industrial Electrician",
+      "electricianDesc": "High demand in factories, industries, and large companies.",
+      "maintenance": "Maintenance Technician",
+      "maintenanceDesc": "Preventive and corrective maintenance of industrial equipment.",
+      "automation": "Industrial Automation",
+      "automationDesc": "PLC programming, robotics, and automated systems.",
+      "energy": "Energy Sector",
+      "energyDesc": "Solar, wind, and electrical power systems."
+    }
+  },
+  "socialProof": {
+    "stats": {
+      "students": "Graduates",
+      "experience": "Years of experience",
+      "employability": "Employability",
+      "certification": "Recognized certification"
+    },
+    "instagramTitle": "Follow us on Instagram"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers about our courses",
+    "items": {
+      "q1": "How long are the courses?",
+      "a1": "Professional courses range from 40 to 240 hours. Technical courses last 2 years with theory and hands-on classes.",
+      "q2": "Do the courses include a certificate?",
+      "a2": "Yes! All courses include a recognized certificate. Technical courses are registered with MEC.",
+      "q3": "Are there hands-on classes?",
+      "a3": "Yes! Our courses combine theory and practice in modern, well-equipped laboratories, ensuring real-world learning.",
+      "q4": "What is the minimum age?",
+      "a4": "The minimum age for professional courses is 18 years. For technical courses, you must have completed or be attending high school.",
+      "q5": "How do I enroll?",
+      "a5": "You can enroll in person at our headquarters or contact us to start the enrollment process quickly and easily."
+    }
+  },
+  "cta": {
+    "title": "Invest in your professional future",
+    "subtitle": "Secure your spot and start your journey to a successful career in industry.",
+    "button": "Enroll now"
+  },
+  "footer": {
+    "description": "Training professionals for the industry with quality technical and vocational courses.",
+    "institutional": "Institutional",
+    "socialMedia": "Social Media",
+    "followUs": "Follow us for news and project updates.",
+    "location": "Location",
+    "headquarters": "Our headquarters",
+    "address": "City, State, Country",
+    "copyright": "All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "backHome": "Return to Home"
+  },
+  "languageSelector": {
+    "title": "Select Language",
+    "subtitle": "Choose the display language"
+  }
+}

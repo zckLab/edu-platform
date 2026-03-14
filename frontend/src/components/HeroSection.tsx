@@ -1,24 +1,20 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const WHATSAPP_LINK = "https://wa.me/559885268000";
-
-
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const splineRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Dynamically load the spline-viewer script to ensure it works correctly in the React lifecycle
     const script = document.createElement("script");
     script.type = "module";
     script.src = "https://unpkg.com/@splinetool/viewer@1.12.68/build/spline-viewer.js";
     document.body.appendChild(script);
 
     return () => {
-      // Optional cleanup if needed
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
@@ -29,7 +25,6 @@ const HeroSection = () => {
     const viewer = splineRef.current;
     if (!viewer) return;
 
-    // The CSS that will be injected INTO the shadow root to permanently hide UI
     const KILL_CSS = `
       #logo, [part="logo"], .spline-watermark,
       #hint, [part="hint"],
@@ -47,29 +42,25 @@ const HeroSection = () => {
       }
     `;
 
-    // Inject CSS into shadowRoot — do NOT remove elements (Spline re-creates them)
     const injectKillCSS = (shadowRoot: ShadowRoot) => {
-      if (!shadowRoot.querySelector('style[data-led-kill]')) {
+      if (!shadowRoot.querySelector('style[data-viewer-kill]')) {
         const style = document.createElement('style');
-        style.setAttribute('data-led-kill', 'true');
+        style.setAttribute('data-viewer-kill', 'true');
         style.textContent = KILL_CSS;
         shadowRoot.appendChild(style);
       }
     };
 
-    // Watch for shadowRoot availability and any DOM changes inside it
     const observer = new MutationObserver(() => {
       if (viewer.shadowRoot) {
         injectKillCSS(viewer.shadowRoot);
       }
     });
 
-    // Force attributes
     viewer.setAttribute('hint', 'false');
     viewer.setAttribute('cursor', 'false');
     viewer.setAttribute('touch-action', 'none');
 
-    // Start observing
     const startObserving = () => {
       if (viewer.shadowRoot) {
         injectKillCSS(viewer.shadowRoot);
@@ -77,7 +68,6 @@ const HeroSection = () => {
       }
     };
 
-    // Try immediately and keep polling until shadowRoot is available
     startObserving();
     const poll = setInterval(() => {
       if (viewer.shadowRoot) {
@@ -86,7 +76,6 @@ const HeroSection = () => {
       }
     }, 50);
 
-    // Force wake-up for Spline WebGL engine
     window.dispatchEvent(new Event('resize'));
     viewer.removeAttribute('loading');
 
@@ -101,7 +90,6 @@ const HeroSection = () => {
       className="relative min-h-screen overflow-hidden flex items-center"
       style={{ background: "radial-gradient(circle, #1a1a1a 0%, #0d0d0d 100%)" }}
     >
-      {/* Forced Spline Background - No delays */}
       <div 
         className="absolute inset-0 z-0 overflow-hidden pointer-events-none min-h-[100vh]"
       >
@@ -130,7 +118,7 @@ const HeroSection = () => {
             <span 
               className="inline-block px-4 py-2 rounded-full text-sm font-medium bg-primary/20 text-primary-foreground/80 mb-8"
             >
-              Matrículas abertas — Vagas limitadas
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -140,9 +128,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Sua carreira na{" "}
-            <span className="text-primary">indústria</span>{" "}
-            começa aqui
+            {t("hero.title1")}{" "}
+            <span className="text-primary">{t("hero.titleHighlight")}</span>{" "}
+            {t("hero.title2")}
           </motion.h1>
 
           <motion.p
@@ -151,8 +139,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Cursos técnicos e profissionalizantes voltados ao mercado industrial.
-            Aulas práticas, certificação reconhecida e alta empregabilidade.
+            {t("hero.description")}
           </motion.p>
 
           <motion.div
@@ -166,18 +153,7 @@ const HeroSection = () => {
               className="gradient-cta text-primary-foreground shadow-primary-glow text-lg px-8 py-6 rounded-xl font-semibold hover:opacity-90 transition-opacity"
               onClick={() => document.getElementById("cursos")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Ver cursos
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/20 text-primary-foreground bg-primary-foreground/5 hover:bg-primary-foreground/10 text-lg px-8 py-6 rounded-xl font-semibold"
-              asChild
-            >
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Falar no WhatsApp
-              </a>
+              {t("hero.viewCourses")}
             </Button>
           </motion.div>
 
@@ -189,9 +165,9 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.5 }}
           >
             {[
-              { label: "NR-10", desc: "Segurança" },
-              { label: "Elétrica", desc: "Industrial" },
-              { label: "Técnico", desc: "2 anos" },
+              { label: t("hero.nr10"), desc: t("hero.safety") },
+              { label: t("hero.electrical"), desc: t("hero.industrial") },
+              { label: t("hero.technical"), desc: t("hero.twoYears") },
             ].map((item) => (
               <div
                 key={item.label}
@@ -204,7 +180,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator with click and hover effect - Isolated from group to avoid glitches */}
         <motion.div
           className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer p-2 flex items-center justify-center"
           animate={{ y: [0, 5, 0] }}

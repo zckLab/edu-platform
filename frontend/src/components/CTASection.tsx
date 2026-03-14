@@ -1,20 +1,17 @@
 import { motion } from "framer-motion";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
-
-const WHATSAPP_LINK = "https://wa.me/559885268000";
-
-
+import { useTranslation } from "react-i18next";
 
 const CTASection = () => {
+  const { t } = useTranslation();
   const splineRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const viewer = splineRef.current;
     if (!viewer) return;
 
-    // The CSS that will be injected INTO the shadow root to permanently hide UI
     const KILL_CSS = `
       #logo, [part="logo"], .spline-watermark,
       #hint, [part="hint"],
@@ -32,29 +29,25 @@ const CTASection = () => {
       }
     `;
 
-    // Inject CSS into shadowRoot — do NOT remove elements (Spline re-creates them)
     const injectKillCSS = (shadowRoot: ShadowRoot) => {
-      if (!shadowRoot.querySelector('style[data-led-kill]')) {
+      if (!shadowRoot.querySelector('style[data-viewer-kill]')) {
         const style = document.createElement('style');
-        style.setAttribute('data-led-kill', 'true');
+        style.setAttribute('data-viewer-kill', 'true');
         style.textContent = KILL_CSS;
         shadowRoot.appendChild(style);
       }
     };
 
-    // Watch for shadowRoot availability and any DOM changes inside it
     const observer = new MutationObserver(() => {
       if (viewer.shadowRoot) {
         injectKillCSS(viewer.shadowRoot);
       }
     });
 
-    // Force attributes
     viewer.setAttribute('hint', 'false');
     viewer.setAttribute('cursor', 'false');
     viewer.setAttribute('touch-action', 'none');
 
-    // Start observing
     const startObserving = () => {
       if (viewer.shadowRoot) {
         injectKillCSS(viewer.shadowRoot);
@@ -62,7 +55,6 @@ const CTASection = () => {
       }
     };
 
-    // Try immediately and keep polling until shadowRoot is available
     startObserving();
     const poll = setInterval(() => {
       if (viewer.shadowRoot) {
@@ -71,7 +63,6 @@ const CTASection = () => {
       }
     }, 50);
 
-    // Force wake-up for Spline WebGL engine
     window.dispatchEvent(new Event('resize'));
     viewer.removeAttribute('loading');
 
@@ -109,20 +100,18 @@ const CTASection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-extrabold text-primary-foreground mb-6">
-            Invista no seu futuro profissional
+            {t("cta.title")}
           </h2>
           <p className="text-lg text-primary-foreground/60 mb-10 max-w-xl mx-auto">
-            Garanta sua vaga e comece sua jornada rumo a uma carreira de sucesso na indústria.
+            {t("cta.subtitle")}
           </p>
           <div className="flex justify-center">
             <Button
               size="lg"
               className="gradient-cta text-primary-foreground shadow-primary-glow text-lg px-10 py-7 rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105"
-              asChild
+              onClick={() => document.getElementById("cursos")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                Matricule-se agora <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              {t("cta.button")} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </motion.div>

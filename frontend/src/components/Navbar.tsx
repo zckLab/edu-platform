@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const WHATSAPP_LINK = "https://wa.me/559885268000";
-
-const navLinks = [
-  { label: "Cursos", href: "#cursos" },
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "FAQ", href: "#faq" },
-];
+import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageSelectorModal from "./LanguageSelectorModal";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t("navbar.courses"), href: "#cursos" },
+    { label: t("navbar.howItWorks"), href: "#como-funciona" },
+    { label: t("navbar.faq"), href: "#faq" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -31,15 +31,19 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className={`text-xl font-extrabold ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-          LED <span className="text-primary">Cursos</span>
+        <a href="#" className="flex items-center gap-2">
+          <img 
+            src="/logo.jpg" 
+            alt="EduPlatform Logo" 
+            className="h-10 w-auto rounded-lg shadow-sm"
+          />
         </a>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.label}
+              key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 scrolled ? "text-foreground/70" : "text-primary-foreground/70"
@@ -48,20 +52,19 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="gradient-cta text-primary-foreground rounded-lg font-semibold shadow-primary-glow" asChild>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-1.5 h-4 w-4" /> WhatsApp
-            </a>
-          </Button>
+          <LanguageSelectorModal scrolled={scrolled} />
         </div>
 
         {/* Mobile toggle */}
-        <button
-          className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSelectorModal scrolled={scrolled} />
+          <button
+            className={scrolled ? "text-foreground" : "text-primary-foreground"}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -73,9 +76,21 @@ const Navbar = () => {
           transition={{ duration: 0.2 }}
         >
           <div className="container py-4 flex flex-col gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col gap-4"
+            >
+              <img
+                src="/logo.jpg"
+                alt="EduPlatform Logo"
+                className="h-12 w-auto self-start rounded-lg shadow-sm mb-2"
+              />
+            </motion.div>
             {navLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="text-foreground/70 font-medium hover:text-primary"
                 onClick={() => setMobileOpen(false)}
@@ -83,11 +98,6 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <Button size="sm" className="gradient-cta text-primary-foreground rounded-lg font-semibold w-full" asChild>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-1.5 h-4 w-4" /> WhatsApp
-              </a>
-            </Button>
           </div>
         </motion.div>
       )}

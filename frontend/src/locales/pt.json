@@ -1,0 +1,138 @@
+{
+  "navbar": {
+    "courses": "Cursos",
+    "howItWorks": "Como funciona",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Matrículas abertas — Vagas limitadas",
+    "title1": "Sua carreira na",
+    "titleHighlight": "indústria",
+    "title2": "começa aqui",
+    "description": "Cursos técnicos e profissionalizantes voltados ao mercado industrial. Aulas práticas, certificação reconhecida e alta empregabilidade.",
+    "viewCourses": "Ver cursos",
+    "nr10": "NR-10",
+    "safety": "Segurança",
+    "electrical": "Elétrica",
+    "industrial": "Industrial",
+    "technical": "Técnico",
+    "twoYears": "2 anos"
+  },
+  "courses": {
+    "professionalTitle": "Cursos Profissionalizantes",
+    "professionalSubtitle": "Capacitação rápida para o mercado de trabalho",
+    "electricityTitle": "Cursos de Eletricidade",
+    "electricitySubtitle": "Torne-se um profissional completo em eletricidade",
+    "technicalTitle": "Cursos Técnicos",
+    "technicalDuration": "Duração: 2 anos",
+    "technicalSubtitle": "Formação técnica completa com certificação reconhecida",
+    "learnMore": "Saiba mais",
+    "prof": {
+      "nr10": "NR-10",
+      "nr10Desc": "Segurança em instalações e serviços em eletricidade. Curso obrigatório para profissionais da área elétrica.",
+      "nr10Comp": "NR-10 Complementar",
+      "nr10CompDesc": "Complementação para trabalhos no SEP — Sistema Elétrico de Potência.",
+      "nr35": "NR-35",
+      "nr35Desc": "Trabalho em altura com segurança. Capacitação obrigatória conforme norma regulamentadora.",
+      "frentista": "Frentista + NR-20",
+      "frentistaDesc": "Formação completa para frentistas com capacitação em segurança com inflamáveis e combustíveis.",
+      "refrigeracao": "Refrigeração",
+      "refrigeracaoDesc": "Instalação e manutenção de sistemas de refrigeração e ar condicionado."
+    },
+    "elec": {
+      "basica": "Eletricidade Básica e Predial",
+      "basicaDesc": "Fundamentos de eletricidade e instalações elétricas prediais residenciais e comerciais.",
+      "industrial": "Eletricidade Industrial + CLP",
+      "industrialDesc": "Comandos elétricos industriais e programação de Controladores Lógicos Programáveis.",
+      "altaBaixa": "Eletricidade Alta e Baixa Tensão",
+      "altaBaixaDesc": "Instalações e manutenção em sistemas de alta e baixa tensão."
+    },
+    "tech": {
+      "eletromec": "Técnico em Eletromecânica",
+      "eletromecDesc": "Formação completa em sistemas elétricos e mecânicos industriais. Manutenção e automação.",
+      "eletrotec": "Técnico em Eletrotécnica",
+      "eletrotecDesc": "Projetos, instalação e manutenção de sistemas elétricos de potência e controle.",
+      "automacao": "Técnico em Automação Industrial",
+      "automacaoDesc": "Sistemas automatizados, robótica, CLP e instrumentação industrial.",
+      "badge": "2 anos"
+    }
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "subtitle": "Do primeiro contato à sua carreira profissional em poucos passos",
+    "step": "PASSO",
+    "steps": {
+      "enrollment": "Matrícula",
+      "enrollmentDesc": "Processo simples e rápido. Presencial ou via contato.",
+      "classes": "Aulas Teóricas e Práticas",
+      "classesDesc": "Conteúdo atualizado com prática em laboratórios equipados.",
+      "certification": "Certificação",
+      "certificationDesc": "Certificado reconhecido pelo MEC e mercado de trabalho.",
+      "career": "Mercado de Trabalho",
+      "careerDesc": "Preparação completa para conquistar sua vaga na indústria."
+    }
+  },
+  "career": {
+    "title": "Mercado de Trabalho",
+    "subtitle": "Áreas com alta demanda e excelentes salários esperam por você",
+    "items": {
+      "electrician": "Eletricista Industrial",
+      "electricianDesc": "Alta demanda em fábricas, indústrias e grandes empresas.",
+      "maintenance": "Técnico em Manutenção",
+      "maintenanceDesc": "Manutenção preventiva e corretiva de equipamentos industriais.",
+      "automation": "Automação Industrial",
+      "automationDesc": "Programação de CLPs, robótica e sistemas automatizados.",
+      "energy": "Área de Energia",
+      "energyDesc": "Energia solar, eólica e sistemas de potência elétrica."
+    }
+  },
+  "socialProof": {
+    "stats": {
+      "students": "Alunos formados",
+      "experience": "Anos de experiência",
+      "employability": "Empregabilidade",
+      "certification": "Certificação reconhecida"
+    },
+    "instagramTitle": "Acompanhe no Instagram"
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "subtitle": "Tire suas dúvidas sobre nossos cursos",
+    "items": {
+      "q1": "Qual a duração dos cursos?",
+      "a1": "Os cursos profissionalizantes variam de 40 a 240 horas. Já os cursos técnicos têm duração de 2 anos com aulas teóricas e práticas.",
+      "q2": "Os cursos possuem certificado?",
+      "a2": "Sim! Todos os cursos possuem certificado reconhecido. Os cursos técnicos possuem registro no MEC.",
+      "q3": "Existe aula prática?",
+      "a3": "Sim! Nossos cursos combinam teoria e prática em laboratórios modernos e equipados, garantindo aprendizado real.",
+      "q4": "Qual a idade mínima?",
+      "a4": "A idade mínima para os cursos profissionalizantes é de 18 anos. Para os cursos técnicos, é necessário ter concluído ou estar cursando o ensino médio.",
+      "q5": "Como faço para me matricular?",
+      "a5": "Você pode se matricular presencialmente em nossa sede ou entrar em contato para iniciar o processo de matrícula de forma rápida e simples."
+    }
+  },
+  "cta": {
+    "title": "Invista no seu futuro profissional",
+    "subtitle": "Garanta sua vaga e comece sua jornada rumo a uma carreira de sucesso na indústria.",
+    "button": "Matricule-se agora"
+  },
+  "footer": {
+    "description": "Formando profissionais para a indústria com cursos técnicos e profissionalizantes de qualidade.",
+    "institutional": "Institucional",
+    "socialMedia": "Redes Sociais",
+    "followUs": "Siga-nos para novidades e atualizações do projeto.",
+    "location": "Localização",
+    "headquarters": "Nossa sede",
+    "address": "Cidade, Estado, País",
+    "copyright": "Todos os direitos reservados."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Página não encontrada",
+    "backHome": "Voltar para o Início"
+  },
+  "languageSelector": {
+    "title": "Selecionar Idioma",
+    "subtitle": "Escolha o idioma de exibição"
+  }
+}

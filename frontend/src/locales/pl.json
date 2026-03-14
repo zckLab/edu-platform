@@ -1,0 +1,138 @@
+{
+  "navbar": {
+    "courses": "Kursy",
+    "howItWorks": "Jak to działa",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "badge": "Zapisy otwarte — Ilość miejsc ograniczona",
+    "title1": "Twoja kariera w",
+    "titleHighlight": "przemyśle",
+    "title2": "zaczyna się tutaj",
+    "description": "Kursy techniczne i zawodowe ukierunkowane na rynek przemysłowy. Zajęcia praktyczne, uznane certyfikaty i wysoka zatrudnialność.",
+    "viewCourses": "Zobacz kursy",
+    "nr10": "NR-10",
+    "safety": "Bezpieczeństwo",
+    "electrical": "Elektryka",
+    "industrial": "Przemysłowa",
+    "technical": "Techniczny",
+    "twoYears": "2 lata"
+  },
+  "courses": {
+    "professionalTitle": "Kursy Zawodowe",
+    "professionalSubtitle": "Szybkie szkolenie na rynek pracy",
+    "electricityTitle": "Kursy Elektryczne",
+    "electricitySubtitle": "Zostań kompletnym specjalistą od elektryki",
+    "technicalTitle": "Kursy Techniczne",
+    "technicalDuration": "Czas trwania: 2 lata",
+    "technicalSubtitle": "Pełne wykształcenie techniczne z uznanym certyfikatem",
+    "learnMore": "Dowiedz się więcej",
+    "prof": {
+      "nr10": "NR-10",
+      "nr10Desc": "Bezpieczeństwo w instalacjach i usługach elektrycznych. Kurs obowiązkowy dla elektryków.",
+      "nr10Comp": "NR-10 Uzupełniający",
+      "nr10CompDesc": "Szkolenie uzupełniające do pracy w Systemie Energetycznym (SEP).",
+      "nr35": "NR-35",
+      "nr35Desc": "Bezpieczna praca na wysokości. Wymagane szkolenie zgodnie z normami.",
+      "frentista": "Pracownik stacji + NR-20",
+      "frentistaDesc": "Pełne szkolenie z zakresu bezpieczeństwa pracy z materiałami łatwopalnymi i paliwami.",
+      "refrigeracao": "Chłodnictwo",
+      "refrigeracaoDesc": "Instalacja i konserwacja systemów chłodniczych i klimatyzacyjnych."
+    },
+    "elec": {
+      "basica": "Elektrotechnika Podstawowa i Budowlana",
+      "basicaDesc": "Podstawy elektryki oraz instalacje elektryczne w budynkach mieszkalnych i komercyjnych.",
+      "industrial": "Elektrotechnika Przemysłowa + PLC",
+      "industrialDesc": "Przemysłowe komendy elektryczne i programowanie sterowników PLC.",
+      "altaBaixa": "Elektrotechnika Wysokiego i Niskiego Napięcia",
+      "altaBaixaDesc": "Instalacja i konserwacja systemów wysokiego i niskiego napięcia."
+    },
+    "tech": {
+      "eletromec": "Technik Elektromechanik",
+      "eletromecDesc": "Pełne szkolenie w zakresie przemysłowych systemów elektrycznych i mechanicznych.",
+      "eletrotec": "Technik Elektrotechnik",
+      "eletrotecDesc": "Projektowanie, instalacja i konserwacja systemów elektrycznych mocy i sterowania.",
+      "automacao": "Technik Automatyki Przemysłowej",
+      "automacaoDesc": "Systemy zautomatyzowane, robotyka, PLC i oprzyrządowanie przemysłowe.",
+      "badge": "2 lata"
+    }
+  },
+  "howItWorks": {
+    "title": "Jak to działa",
+    "subtitle": "Od pierwszego kontaktu do kariery zawodowej w kilku krokach",
+    "step": "KROK",
+    "steps": {
+      "enrollment": "Zapisy",
+      "enrollmentDesc": "Prosty i szybki proces. Osobiście lub przez kontakt.",
+      "classes": "Zajęcia Teoretyczne i Praktyczne",
+      "classesDesc": "Aktualna wiedza z praktyką w wyposażonych laboratoriach.",
+      "certification": "Certyfikacja",
+      "certificationDesc": "Certyfikat uznawany przez MEC i rynek pracy.",
+      "career": "Rynek Pracy",
+      "careerDesc": "Pełne przygotowanie do zdobycia stanowiska w przemyśle."
+    }
+  },
+  "career": {
+    "title": "Rynek Pracy",
+    "subtitle": "Dziedziny o wysokim popycie i świetnymi zarobkami czekają na Ciebie",
+    "items": {
+      "electrician": "Elektryk Przemysłowy",
+      "electricianDesc": "Wysoki popyt w fabrykach, zakładach przemysłowych i dużych firmach.",
+      "maintenance": "Technik Utrzymania Ruchu",
+      "maintenanceDesc": "Konserwacja prewencyjna i naprawcza urządzeń przemysłowych.",
+      "automation": "Automatyka Przemysłowa",
+      "automationDesc": "Programowanie PLC, robotyka i systemy zautomatyzowane.",
+      "energy": "Sektor Energetyczny",
+      "energyDesc": "Energia słoneczna, wiatrowa i systemy zasilania elektrycznego."
+    }
+  },
+  "socialProof": {
+    "stats": {
+      "students": "Absolwenci",
+      "experience": "Lat doświadczenia",
+      "employability": "Zatrudnialność",
+      "certification": "Uznana certyfikacja"
+    },
+    "instagramTitle": "Śledź nas na Instagramie"
+  },
+  "faq": {
+    "title": "Często Zadawane Pytania",
+    "subtitle": "Uzyskaj odpowiedzi na pytania dotyczące naszych kursów",
+    "items": {
+      "q1": "Jak długo trwają kursy?",
+      "a1": "Kursy zawodowe trwają od 40 do 240 godzin. Kursy techniczne trwają 2 lata z zajęciami teoretycznymi i praktycznymi.",
+      "q2": "Czy kursy obejmują certyfikat?",
+      "a2": "Tak! Wszystkie kursy obejmują uznany certyfikat. Kursy techniczne są zarejestrowane w MEC.",
+      "q3": "Czy są zajęcia praktyczne?",
+      "a3": "Tak! Nasze kursy łączą teorię i praktykę w nowoczesnych, dobrze wyposażonych laboratoriach.",
+      "q4": "Jaki jest minimalny wiek?",
+      "a4": "Minimalny wiek dla kursów zawodowych to 18 lat. W przypadku kursów technicznych wymagane jest ukończenie lub uczęszczanie do szkoły średniej.",
+      "q5": "Jak się zapisać?",
+      "a5": "Możesz zapisać się osobiście w naszej siedzibie lub skontaktować się z nami, aby szybko i łatwo rozpocząć proces rejestracji."
+    }
+  },
+  "cta": {
+    "title": "Zainwestuj w swoją przyszłość zawodową",
+    "subtitle": "Zabezpiecz swoje miejsce i rozpocznij drogę do udanej kariery w przemyśle.",
+    "button": "Zapisz się teraz"
+  },
+  "footer": {
+    "description": "Szkolenie profesjonalistów dla przemysłu z wykorzystaniem wysokiej jakości kursów technicznych i zawodowych.",
+    "institutional": "Instytucjonalny",
+    "socialMedia": "Media Społecznościowe",
+    "followUs": "Śledź nas, aby być na bieżąco z nowościami i aktualizacjami.",
+    "location": "Lokalizacja",
+    "headquarters": "Nasza siedziba",
+    "address": "Miasto, Województwo, Kraj",
+    "copyright": "Wszelkie prawa zastrzeżone."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Ups! Strona nie została znaleziona",
+    "backHome": "Powrót do strony głównej"
+  },
+  "languageSelector": {
+    "title": "Wybierz język",
+    "subtitle": "Wybierz język wyświetlania"
+  }
+}
