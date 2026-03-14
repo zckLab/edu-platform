@@ -53,7 +53,7 @@ This project aims to provide a high-end, production-ready template for education
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-username/edu-platform-template.git
+   git clone https://github.com/zckLab/edu-platform.git
    cd edu-platform/frontend
    ```
 
